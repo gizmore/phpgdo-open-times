@@ -9,6 +9,6 @@ use GDO\OpenTimes\GDT_OpenHours;
    <?=$field->htmlID()?>
    <?=$field->htmlFormName()?>
    <?=$field->htmlRequired()?>
-   <?=$field->htmlDisabled()?>><?=$field->display()?></textarea>
+   <?=$field->htmlDisabled()?>><?=$field->renderVar()?></textarea>
   <?= $field->htmlError(); ?>
 </div>
