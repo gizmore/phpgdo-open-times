@@ -2,7 +2,6 @@
 namespace GDO\OpenTimes;
 
 use GDO\Core\GDO_Module;
-use GDO\Angular\Module_Angular;
 use GDO\Core\Application;
 
 /**
@@ -20,14 +19,6 @@ final class Module_OpenTimes extends GDO_Module
 	
 	public function onIncludeScripts() : void
 	{
-		if (module_enabled('Angular'))
-		{
-		    if (Module_Angular::instance()->cfgIncludeScripts() ||
-		        Application::instance()->hasTheme('material'))
-		    {
-    			$this->addJS('js/gwf-open-hours-ctrl.js');
-		    }
-		}
 		$this->addJS('bower_components/opening_hours/opening_hours.js');
 	}
 

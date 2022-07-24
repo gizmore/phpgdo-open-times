@@ -13,7 +13,7 @@ class GDT_OpenHours extends GDT_String
 	public $writable = true;
 	public string $icon = 'time';
 
-	public function renderForm()
+	public function renderForm() : string
 	{
 		return GDT_Template::php('OpenTimes', 'form/open_hours.php', ['field' => $this]);
 	}
