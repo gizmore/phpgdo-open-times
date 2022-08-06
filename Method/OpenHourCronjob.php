@@ -21,7 +21,7 @@ final class OpenHourCronjob extends MethodCronjob
 				$class = new ReflectionClass($className);
 				if (!$class->isAbstract())
 				{
-					if ($table = GDO::tableFor($className))
+					if ($table = GDO::tableFor($className, false))
 					{
 					    if (!$table->gdoAbstract())
 					    {
