@@ -2,7 +2,6 @@
 namespace GDO\OpenTimes;
 
 use GDO\Core\GDO_Module;
-use GDO\Core\Application;
 
 /**
  * Include open times library.
@@ -19,7 +18,7 @@ final class Module_OpenTimes extends GDO_Module
 	
 	public function onIncludeScripts() : void
 	{
-		$this->addJS('bower_components/opening_hours/opening_hours.js');
+		$this->addBowerJS('opening_hours/opening_hours.js');
 	}
 
 }
