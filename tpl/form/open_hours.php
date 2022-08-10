@@ -7,7 +7,7 @@ use GDO\OpenTimes\GDT_OpenHours;
   <label <?=$field->htmlForID()?>><?= $field->displayLabel(); ?></label>
   <textarea
    <?=$field->htmlID()?>
-   <?=$field->htmlFormName()?>
+   <?=$field->htmlName()?>
    <?=$field->htmlRequired()?>
    <?=$field->htmlDisabled()?>><?=$field->renderVar()?></textarea>
   <?= $field->htmlError(); ?>
