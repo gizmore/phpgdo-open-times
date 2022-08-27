@@ -4,7 +4,7 @@ use GDO\OpenTimes\GDT_OpenHours;
 ?>
 <div class="gdt-container<?= $field->classError(); ?>">
   <?= $field->htmlIcon(); ?>
-  <label <?=$field->htmlForID()?>><?= $field->displayLabel(); ?></label>
+  <label <?=$field->htmlForID()?>><?= $field->renderLabel(); ?></label>
   <textarea
    <?=$field->htmlID()?>
    <?=$field->htmlName()?>
