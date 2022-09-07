@@ -18,7 +18,7 @@ final class Module_OpenTimes extends GDO_Module
 	
 	public function onIncludeScripts() : void
 	{
-		$this->addBowerJS('opening_hours/opening_hours.js');
+		$this->addBowerJS('opening_hours/build/opening_hours.js');
 	}
 
 }
