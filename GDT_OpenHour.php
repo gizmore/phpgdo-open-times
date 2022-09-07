@@ -9,7 +9,9 @@ final class GDT_OpenHour extends GDT_Enum
 	
 	protected function __construct()
 	{
+		parent::__construct();
 		$this->enumValues('open', 'closed', 'unknown');
+		$this->initial('unknown');
 	}
 	
 	public $hoursColumn;
@@ -18,4 +20,5 @@ final class GDT_OpenHour extends GDT_Enum
 		$this->hoursColumn = $columnName;
 		return $this;
 	}
+	
 }
