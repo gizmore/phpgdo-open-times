@@ -9,8 +9,6 @@ class GDT_OpenHours extends GDT_String
 {
 	public function defaultLabel() : self { return $this->label('open_times'); }
 	
-// 	public $editable = true;
-// 	public $writeable = true;
 	public string $icon = 'time';
 
 	public function renderForm() : string

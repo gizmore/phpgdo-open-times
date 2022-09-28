@@ -5,7 +5,7 @@ use GDO\Core\GDT_Enum;
 
 final class GDT_OpenHour extends GDT_Enum
 {
-	public $editable = false;
+	public $writeable = false;
 	
 	protected function __construct()
 	{
