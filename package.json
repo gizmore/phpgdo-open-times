@@ -1,4 +1,5 @@
 {
+  "license": "MIT",
   "dependencies": {
     "opening_hours": "^3.8.0"
   }
