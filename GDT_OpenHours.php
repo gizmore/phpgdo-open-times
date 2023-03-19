@@ -7,7 +7,7 @@ use GDO\Core\GDT_String;
 
 class GDT_OpenHours extends GDT_String
 {
-	public function defaultLabel() : self { return $this->label('open_times'); }
+	public function defaultLabel(): static { return $this->label('open_times'); }
 	
 	public string $icon = 'time';
 
