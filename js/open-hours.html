@@ -1,16 +1,16 @@
 <md-dialog aria-label="Open Hours dialog">
-	<md-dialog-content layout-padding>
-		
-		<p ng-repeat="rule in rules">
-		{{rule}}
-		</p>
-		<p>HI</p>
-		
-	</md-dialog-content>
+    <md-dialog-content layout-padding>
 
-	<md-dialog-actions>
-		<md-button ng-click="confirmHours()" class="md-primary" aria-label="Abort and close dialog">Pick</md-button>
-		<md-button ng-click="closeDialog()" class="md-primary" aria-label="Abort and close dialog">Abort</md-button>
-	</md-dialog-actions>
+        <p ng-repeat="rule in rules">
+            {{rule}}
+        </p>
+        <p>HI</p>
+
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <md-button aria-label="Abort and close dialog" class="md-primary" ng-click="confirmHours()">Pick</md-button>
+        <md-button aria-label="Abort and close dialog" class="md-primary" ng-click="closeDialog()">Abort</md-button>
+    </md-dialog-actions>
 
 </md-dialog>

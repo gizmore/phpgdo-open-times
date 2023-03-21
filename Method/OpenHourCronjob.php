@@ -2,16 +2,19 @@
 namespace GDO\OpenTimes\Method;
 
 use GDO\Core\GDO;
+use GDO\Cronjob\MethodCronjob;
 use GDO\OpenTimes\GDT_OpenHour;
 use GDO\OpenTimes\OpenHours;
 use ReflectionClass;
-use GDO\Cronjob\MethodCronjob;
+
 /**
  * Precompute shop open times.
+ *
  * @author gizmore
  */
 final class OpenHourCronjob extends MethodCronjob
 {
+
 	public function run()
 	{
 		foreach (get_declared_classes() as $className)
@@ -23,16 +26,16 @@ final class OpenHourCronjob extends MethodCronjob
 				{
 					if ($table = GDO::tableFor($className, false))
 					{
-					    if (!$table->gdoAbstract())
-					    {
-					        $this->runForGDO($table);
-					    }
+						if (!$table->gdoAbstract())
+						{
+							$this->runForGDO($table);
+						}
 					}
 				}
 			}
 		}
 	}
-	
+
 	private function runForGDO(GDO $table)
 	{
 		foreach ($table->gdoColumnsCache() as $gdt)
@@ -43,7 +46,7 @@ final class OpenHourCronjob extends MethodCronjob
 			}
 		}
 	}
-	
+
 	private function runForColumn(GDO $table, GDT_OpenHour $column)
 	{
 		$result = $table->select()->exec();
@@ -68,7 +71,5 @@ final class OpenHourCronjob extends MethodCronjob
 		}
 	}
 
-	
+
 }
-
-

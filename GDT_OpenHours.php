@@ -2,38 +2,22 @@
 namespace GDO\OpenTimes;
 
 use GDO\Core\Application;
-use GDO\Core\GDT_Template;
 use GDO\Core\GDT_String;
+use GDO\Core\GDT_Template;
 
 class GDT_OpenHours extends GDT_String
 {
-	public function defaultLabel(): static { return $this->label('open_times'); }
-	
+
 	public string $icon = 'time';
 
-	public function renderForm() : string
+	public function defaultLabel(): self { return $this->label('open_times'); }
+
+	public function renderForm(): string
 	{
 		return GDT_Template::php('OpenTimes', 'form/open_hours.php', ['field' => $this]);
 	}
-	
-	public function isOpen($time=null)
-	{
-	    $time = $time === null ? Application::$TIME : $time;
-		$oh = $this->getValue();
-		$oh->isOpen($time);
-	}
-	
-//	 public function initJSON()
-//	 {
-//		 return $this->getValue();
-//	 }
-	
-//	 public function getValue()
-//	 {
-//		 return new OpenHours($this->getValue());
-//	 }
-	
-	public function validate($value) : bool
+
+	public function validate($value): bool
 	{
 		if (!parent::validate($value))
 		{
@@ -46,4 +30,22 @@ class GDT_OpenHours extends GDT_String
 		$ot = new OpenHours($value);
 		return $ot->isOpen() !== null;
 	}
+
+//	 public function initJSON()
+//	 {
+//		 return $this->getValue();
+//	 }
+
+//	 public function getValue()
+//	 {
+//		 return new OpenHours($this->getValue());
+//	 }
+
+	public function isOpen($time = null)
+	{
+		$time = $time === null ? Application::$TIME : $time;
+		$oh = $this->getValue();
+		$oh->isOpen($time);
+	}
+
 }
