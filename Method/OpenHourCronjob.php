@@ -15,7 +15,7 @@ use ReflectionClass;
 final class OpenHourCronjob extends MethodCronjob
 {
 
-	public function run()
+	public function run(): void
 	{
 		foreach (get_declared_classes() as $className)
 		{

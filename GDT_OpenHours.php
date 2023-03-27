@@ -17,7 +17,7 @@ class GDT_OpenHours extends GDT_String
 		return GDT_Template::php('OpenTimes', 'form/open_hours.php', ['field' => $this]);
 	}
 
-	public function validate($value): bool
+	public function validate(int|float|string|array|null|object|bool $value): bool
 	{
 		if (!parent::validate($value))
 		{
