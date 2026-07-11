@@ -2,18 +2,15 @@
 
 use GDO\OpenTimes\GDT_OpenHour;
 
-$field instanceof GDT_OpenHour;
+/** @var $field GDT_OpenHour */
+$value = $field->getValue() ?: 'unknown';
+$labels = [
+	'open' => 'enum_open',
+	'closed' => 'enum_closed',
+	'unknown' => 'enum_unknown',
+];
 ?>
-<?php
-switch ($field->getValue())
-{
-	case 'open':
-		echo t('enum_open');
-		break;
-	case 'closed':
-		echo t('enum_closed');
-		break;
-	case 'unknown':
-		echo t('enum_unknown');
-		break;
-}
+<span class="gdo-open-state gdo-open-state-<?=html($value)?>">
+    <span class="gdo-open-state-dot" aria-hidden="true"></span>
+    <?=t($labels[$value] ?? 'enum_unknown')?>
+</span>

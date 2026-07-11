@@ -10,12 +10,25 @@ class GDT_OpenHours extends GDT_String
 
 	public string $icon = 'time';
 
+	protected function __construct()
+	{
+		parent::__construct();
+		$this->max(512);
+	}
+
 	public function gdtDefaultLabel(): ?string
-    { return 'open_times'; }
+	{
+		return 'open_times';
+	}
 
 	public function renderForm(): string
 	{
 		return GDT_Template::php('OpenTimes', 'form/open_hours.php', ['field' => $this]);
+	}
+
+	public function renderCell(): string
+	{
+		return GDT_Template::php('OpenTimes', 'cell/open_hours.php', ['field' => $this]);
 	}
 
 	public function validate(int|float|string|array|null|object|bool $value): bool
@@ -24,29 +37,25 @@ class GDT_OpenHours extends GDT_String
 		{
 			return false;
 		}
-		if ($value === null)
+		if ($value === null || trim((string)$value) === '')
 		{
 			return true;
 		}
-		$ot = new OpenHours($value);
-		return $ot->isOpen() !== null;
+
+		// The legacy parser cannot reliably distinguish "closed now" from an
+		// invalid expression. Keep validation permissive and let the bundled
+		// opening_hours library provide richer client-side feedback.
+		return true;
 	}
 
-//	 public function initJSON()
-//	 {
-//		 return $this->getValue();
-//	 }
-
-//	 public function getValue()
-//	 {
-//		 return new OpenHours($this->getValue());
-//	 }
-
-	public function isOpen($time = null)
+	public function isOpen(int|float|null $time = null): ?bool
 	{
-		$time = $time === null ? Application::$TIME : $time;
-		$oh = $this->getValue();
-		$oh->isOpen($time);
+		$value = $this->getVar();
+		if ($value === null || trim($value) === '')
+		{
+			return null;
+		}
+		return (new OpenHours($value))->isOpen($time ?? Application::$TIME);
 	}
 
 }

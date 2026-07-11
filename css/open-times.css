@@ -1,0 +1,16 @@
+.gdo-open-times-input { position: relative; }
+.gdo-open-times-input textarea { min-height: 5.5rem; padding-left: 2.5rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; resize: vertical; }
+.gdo-open-times-icon { position: absolute; z-index: 1; left: .75rem; top: .7rem; opacity: .65; pointer-events: none; }
+.gdo-open-times-presets { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; margin-top: .55rem; font-size: .875rem; }
+.gdo-open-times-presets button { border: 1px solid currentColor; border-radius: 999px; padding: .15rem .55rem; background: transparent; color: inherit; opacity: .75; cursor: pointer; }
+.gdo-open-times-presets button:hover, .gdo-open-times-presets button:focus { opacity: 1; }
+.gdo-open-times-help, .gdo-open-times-preview { margin-top: .4rem; font-size: .82rem; opacity: .72; }
+.gdo-open-times-preview.is-valid { opacity: 1; }
+.gdo-open-times-preview.is-invalid { opacity: 1; }
+.gdo-open-state { display: inline-flex; align-items: center; gap: .4em; font-weight: 600; white-space: nowrap; }
+.gdo-open-state-dot { width: .65em; height: .65em; border-radius: 50%; background: #888; box-shadow: 0 0 0 .15em color-mix(in srgb, #888 20%, transparent); }
+.gdo-open-state-open .gdo-open-state-dot { background: #198754; box-shadow: 0 0 0 .15em color-mix(in srgb, #198754 20%, transparent); }
+.gdo-open-state-closed .gdo-open-state-dot { background: #dc3545; box-shadow: 0 0 0 .15em color-mix(in srgb, #dc3545 20%, transparent); }
+.gdo-open-times-cell { display: flex; flex-direction: column; align-items: flex-start; gap: .2rem; }
+.gdo-open-times-cell code { font-size: .82em; white-space: normal; }
+.gdo-open-times-empty { opacity: .55; font-style: italic; }
